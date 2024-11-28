@@ -52,7 +52,7 @@ app.get('/records/:id', (req, res) => {
 });
 
 // update a specific record
-app.put('/records/:id', (req, res) => {
+app.put('/info/:id', (req, res) => {
     const data = readData();       // reads the data in the data.json
     const index = data.findIndex(item => item.id === parseInt(req.params.id));    // finds the index of the record with the matching id
     if (index !== -1) {
@@ -65,7 +65,7 @@ app.put('/records/:id', (req, res) => {
 });
 
 // delete a specific record
-app.delete('/records/:id', (req, res) => {
+app.delete('/data/:id', (req, res) => {
     const data = readData();   // reads the data in the data.json
     const filteredData = data.filter(item => item.id !== parseInt(req.params.id)); //filters records with a matching id
     writeData(filteredData); // this writes the record without the deleted  record back to the JSON file
